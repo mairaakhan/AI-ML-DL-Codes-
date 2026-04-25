@@ -1,0 +1,102 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+x = np.linspace(-5.0, 5.0, 100)
+y = np.sqrt(10**2 - x**2)
+y=np.hstack([y,-y])
+x=np.hstack([x,-x])
+
+x1 = np.linspace(-5.0, 5.0, 100)
+y1 = np.sqrt(5**2 - x1**2)
+y1=np.hstack([y1,-y1])
+x1=np.hstack([x1,-x1])
+
+plt.scatter(y,x)
+plt.scatter(y1,x1)
+
+import pandas as pd
+df1 =pd.DataFrame(np.vstack([y,x]).T,columns=['X1','X2'])
+df1['Y']=0
+df2 =pd.DataFrame(np.vstack([y1,x1]).T,columns=['X1','X2'])
+df2['Y']=1
+df = pd.concat([df1,df2])
+df.head(5)
+
+X = df.iloc[:, :2]  
+y = df.Y
+
+## Split the dataset into train and test
+from sklearn.model_selection import train_test_split
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.25,random_state=42)
+
+from sklearn.svm import SVC
+classifier=SVC(kernel="linear")
+classifier.fit(X_train,y_train)
+
+from sklearn.metrics import accuracy_score
+y_pred = classifier.predict(X_test)
+accuracy_score(y_test, y_pred)
+
+# We need to find components for the Polynomical Kernel
+#X1,X2,X1_square,X2_square,X1*X2
+df['X1_Square']= df['X1']**2
+df['X2_Square']= df['X2']**2
+df['X1*X2'] = (df['X1'] *df['X2'])
+df.head()
+
+X = df[['X1','X2','X1_Square','X2_Square','X1*X2']]
+y = df['Y']
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, 
+                                                    test_size = 0.25, 
+                                                    random_state = 0)
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # needed for 3D plotting
+
+# Create a new column for the product
+df['X1_X2'] = df['X1'] * df['X2']
+
+# Set up 3D figure
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111, projection='3d')
+
+# Plot points
+colors = ['blue' if y==0 else 'red' for y in df['Y']]
+ax.scatter(df['X1'], df['X2'], df['X1_X2'], c=colors, alpha=0.7, s=50)
+
+# Labels
+ax.set_xlabel('X1')
+ax.set_ylabel('X2')
+ax.set_zlabel('X1 * X2')
+ax.set_title('3D Scatter Plot of X1, X2, and X1*X2')
+
+plt.show()
+
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D  # required for 3D plotting
+
+# Create the new columns
+df['X1_Square'] = df['X1'] ** 2
+df['X1_X2'] = df['X1'] * df['X2']
+
+# Create figure and 3D axes
+fig = plt.figure(figsize=(8,6))
+ax = fig.add_subplot(111, projection='3d')
+
+# Color by Y (0=blue, 1=red)
+colors = ['blue' if y==0 else 'red' for y in df['Y']]
+
+# Plot 3D scatter
+ax.scatter(df['X1_Square'], df['X1_Square'], df['X1_X2'], c=colors, s=50, alpha=0.7)
+
+# Set labels
+ax.set_xlabel('X1_Square')
+ax.set_ylabel('X1_Square')  # this is what you wrote; maybe you meant X2?
+ax.set_zlabel('X1 * X2')
+ax.set_title('3D Scatter Plot (Static)')
+
+plt.show()
+
+
+

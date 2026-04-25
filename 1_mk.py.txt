@@ -1,0 +1,129 @@
+#STRING - imutable
+#with double quotes
+string1 = "python programming"
+#with single quotes
+string1 = 'python programming'
+
+name = "python"
+print(name)
+
+message = "i love python"
+print(message)
+
+greet = 'hello'
+print(greet[1])
+print(greet[-4])
+print(greet[1:3])
+
+
+greet = 'he llo'
+print(greet[3])
+
+message = 'hola amigos'
+#message[0] = 'f'
+print(message)
+
+
+message = 'hola amigos'
+message = 'hola friends'
+print(message)
+
+
+message = """
+hola python
+hola amigos
+hola friends
+"""
+print(message)
+
+
+message = '''
+hola python
+hola amigos
+hola friends
+'''
+print(message)
+
+#comparision
+str1 = 'hello'
+str2 = 'bye'
+str3 = 'hello'
+
+print(str1 == str2)
+print(str2 == str3)
+print(str1 == str3)
+print(str1 + str2)
+n = 'hello,' + ' ' + 'maira'
+print(n)
+
+str1 = 'hello'
+
+for letter in str1:
+    print(letter)
+
+print()
+
+for i in range(len(str1)):
+    print(str1[i])
+
+print('a' in 'program')
+print('at' in 'program')
+
+
+s='maira'
+for i in range(len(s)):
+    if s[i] == 'a':
+        print("found at",i)
+
+s='maira'
+for i in range(len(s)):
+    if s[i] == 'a':
+        print("found at",i)
+    else:
+        print('not found')
+
+s='maira'
+n=input('enter a character:')
+for i in range(len(s)):
+    if s[i] == n:
+        print("found at",i)
+    else:
+        print('not found')
+
+s=input('enter a word:')
+n=input('enter a character:')
+for i in range(len(s)):
+    if s[i] == n:
+        print("found at",i)
+    else:
+        print('not found')
+
+print("\"maira\"")
+print("\'he said, whats\'s there\' ")
+print("'he said, whats's there' ")
+
+name = 'Maira'
+country = 'Pakistan'
+
+print(f'My name is {name} , I live in {country}.')
+
+Country_Capital = {
+"Pakistan" : "Islamabad",
+"England" : "London",
+"Canada" : "Ottawa"}
+print(Country_Capital)
+print(Country_Capital["Pakistan"])
+
+#adding at last index
+Country_Capital ['Pak'] = 'Isl'
+print(Country_Capital)
+
+#removing
+del Country_Capital ['Pak']
+print(Country_Capital)
+
+Country_Capital.clear()
+print(Country_Capital)
+
+
+

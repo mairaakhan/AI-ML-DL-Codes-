@@ -1,0 +1,65 @@
+salary = float(input("Enter your salary: "))
+year = 0
+while (salary < 10000):
+    increment = (salary * 0.1)
+    salary = salary + increment
+    if (year > 30):
+        year += 1
+print(year, "," , salary)
+
+names = ['Leo', 'Kendall', 'Harry']
+ages = (24, 27, 25)
+
+for name, age in zip(names, ages):
+    print(f"Name: {name}, Age:{age}")
+
+# Exercise
+names = ['Leo', 'Kendall', 'Harry']
+ages = (24, 27, 25)
+classes = (11, 14, 12)
+
+for name, age, classes in zip(names, ages, classes):
+    print(f"Name: {name}, Age:{age}, Class:{classes}")
+
+# Exercise
+names = ['Leo', 'Kendall', 'Harry', 'Asad']
+ages = (24, 27, 25)
+classes = (11, 14, 12)
+
+for name, age, classes in zip(names, ages, classes):
+    print(f"Name: {name}, Age:{age}, Class:{classes}")
+
+# Using Items
+p1 = {'Washington: ' : 'First', 'Lincoln: ' : 'Emancipator', 'Roosevelt:' : 'Trust-Buster'}
+for name, title in p1.items():
+    print(name, title)
+
+num = [1,3,5,6,2,1,3]
+print("sorted List:")
+for n in sorted(num):
+    print(n, end = " ")
+print("\nSorted list without duplicates")
+for n in set(num):
+    print(n, end = " ")
+
+def func():
+    print("Hello World")
+    
+func()
+func()
+func()
+
+def evenOdd(x):
+    if (x % 2 == 0):
+        return True
+    else:
+        return False
+evenOdd(7)
+
+def myFun(x, y = 50):
+    print("x: ", x)
+    print("y: ", y)
+myFun(10, 20)
+
+
+

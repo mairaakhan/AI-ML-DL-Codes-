@@ -1,0 +1,82 @@
+def myFun(x, y=50):
+    print("x:", x)
+    print("y:", y)
+
+myFun(10)
+myFun(10,_)
+myFun(_,10)
+myFun(_)
+myFun(_,_)
+
+def student(fname,iname):
+    print(fname,iname)
+student(fname="machine", iname="learning")
+student(iname="learning", fname="machine")
+
+def greet(name, msg = "how are you?", time = "today"):
+    print(f"hello {name}, {msg}, {time}?")
+    
+greet("john doe")
+greet(name = "alice", msg = "doing great")
+greet(name = "alice", msg = "doing great" , time = "now")
+greet(msg = "doing great" ,name = "alice", time = "now")
+greet(name = _ , msg = "doing great" , time = "now")
+
+def nameage(name,age):
+    print("Hi, I am", name)
+    print("my age is", age)
+
+nameage("Maira",22)
+nameage(22,"Maira")
+nameage(age=22, name="Maira")
+
+
+def myfun(*args, **kwargs):
+    print("non key word arguments (*args): ")
+    for arg in args:
+        print(arg)
+    print("\nkeyword arguments (**kwargs): ")
+    for key,value in kwargs.items():
+        print(f"{key} == {value}")
+
+myfun("hey", "welcome", first="greeks", mid="for", last="greeks")
+
+def myfun1(*args):
+    print(args)
+
+def myfun2(**kwargs):
+    print(kwargs)
+        
+myfun1("maira")
+myfun1("maira","khan")
+myfun2(first="greeks", mid="for", last="greeks")
+
+def sq_value(num):
+    return num**2
+print(sq_value(2))
+sq_value(3)
+
+def myfun(x):
+    x[0] = 20
+
+lst = [70,11,12,13]
+myfun(lst)
+print(lst) #list is modified
+
+def myfun2(x):
+    x=20
+    print(x)
+a=10
+myfun2(a)
+print(a) #integer can not modified
+
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+print(factorial(4))
+
+
+
