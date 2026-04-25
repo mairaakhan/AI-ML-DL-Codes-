@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Assignment - Python Code</title>
+</head>
+<body>
+
+<h1>Assignment - Python Code</h1>
+
+<pre>
+# =========================
+# LOOP PRACTICE
+# =========================
+
+i=0
+a="navetstc"
+while i < len(a):
+    if a[i] == "e" or a[i] == "s":
+        i += 1
+        continue
+    print(a[i])
+    i +=1
+
+i=0
+a="navetstc"
+while i < len(a):
+    if a[i] == "e" or a[i] == "s":
+       break
+    print(a[i])
+    i +=1
+
+i=0
+while i<4:
+    i += 1
+    print(i)
+else:
+    print("no break")
+
+i=0
+while(i<4):
+    i += 1
+    print(i)
+    break
+else:
+    print("break")
+
+# =========================
+# LIST SEARCH + LOOPS
+# =========================
+
+a=[1,2,3,4,6,7,8]
+val=7
+
+for i in a:
+    if i == val:
+        print(f"found at {i}!")
+        break
+else:
+    print(f"not found")
+
+# =========================
+# SALARY LOOP
+# =========================
+
+salary = float(input("Enter your salary: "))
+year = 0
+while (salary < 10000):
+    increment = (salary * 0.1)
+    salary = salary + increment
+    if (year > 30):
+        year += 1
+print(year, "," , salary)
+
+# =========================
+# ZIP FUNCTION
+# =========================
+
+names = ['Leo', 'Kendall', 'Harry']
+ages = (24, 27, 25)
+
+for name, age in zip(names, ages):
+    print(f"Name: {name}, Age:{age}")
+
+# =========================
+# DICTIONARY LOOP
+# =========================
+
+p1 = {'Washington: ' : 'First', 'Lincoln: ' : 'Emancipator', 'Roosevelt:' : 'Trust-Buster'}
+for name, title in p1.items():
+    print(name, title)
+
+# =========================
+# SORTING + SET
+# =========================
+
+num = [1,3,5,6,2,1,3]
+print("sorted List:")
+for n in sorted(num):
+    print(n, end=" ")
+
+print("\\nSorted list without duplicates")
+for n in set(num):
+    print(n, end=" ")
+
+# =========================
+# FUNCTIONS
+# =========================
+
+def func():
+    print("Hello World")
+
+func()
+
+def evenOdd(x):
+    if (x % 2 == 0):
+        return True
+    else:
+        return False
+
+print(evenOdd(7))
+
+def factorial(n):
+    if n == 0:
+        return 1
+    else:
+        return n * factorial(n-1)
+
+print(factorial(4))
+
+# =========================
+# STRING PRACTICE
+# =========================
+
+string1 = "python programming"
+name = "python"
+message = "i love python"
+
+print(name)
+print(message)
+
+# =========================
+# DICTIONARY
+# =========================
+
+Country_Capital = {
+"Pakistan" : "Islamabad",
+"England" : "London",
+"Canada" : "Ottawa"}
+
+print(Country_Capital)
+
+Country_Capital['Pak'] = 'Isl'
+del Country_Capital['Pak']
+Country_Capital.clear()
+print(Country_Capital)
+
+</pre>
+
+</body>
+</html>
