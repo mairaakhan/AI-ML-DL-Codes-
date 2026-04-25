@@ -1,0 +1,226 @@
+text_file = open('Natural_Language_Processing_Text.txt')
+
+text = text_file.read()
+
+print(type(text))
+
+print(text)
+
+print(len(text))
+
+# import nltk
+# from nltk import self_tokenize
+# from nltk import word_tokenize
+# nltk.download('popular')
+# nltk.download('punkt_tab')
+
+# import re
+
+# text = "Hello there! How are you doing today? I hope everything is fine."
+
+# # Sentence split
+# sentences = re.split(r'[.!?]+', text)
+# sentences = [s.strip() for s in sentences if s.strip()]
+
+# print("Sentences:")
+# print(sentences)
+
+# # Word split
+# words = re.findall(r'\b\w+\b', text)
+
+# print("\nWords:")
+# print(words)
+
+import nltk
+from nltk.tokenize import PunktSentenceTokenizer
+from nltk.tokenize import word_tokenize
+tokenizer = PunktSentenceTokenizer()
+sentences = tokenizer.tokenize(text)
+
+print("Length of sentences:", len(sentences))
+print("Sentences:", sentences)
+print()
+words = word_tokenize(text, preserve_line=True)
+print("Total words:", len(words))
+print("Words:", words)
+
+#It finds the most frequently used words in your text.
+#FreqDist = used to count how often words appear
+#.most_common(10) → shows top repeated words
+
+import nltk
+from nltk.probability import FreqDist
+
+fdist = FreqDist(words)
+
+fdist.most_common(10)
+
+#It shows a graph of the most frequent words in your text
+
+import matplotlib.pyplot as plt
+fdist.plot(10)
+
+#This code:
+#Removes punctuation
+#Keeps only alphabet words
+#Converts everything to lowercase
+#Counts final clean words
+
+words_no_punc = []
+
+for w in words:
+    if w.isalpha():
+        words_no_punc.append(w.lower())
+
+print(words_no_punc)
+print()
+
+print(len(words_no_punc))
+
+
+# Create a frequency distribution (counts how often each word appears)
+fdist = FreqDist(words_no_punc)
+
+# Show the 10 most common words and their counts
+fdist.most_common(10)
+
+
+fdist.plot(10)
+
+# from nltk.corpus import stopwords
+
+# stopwords = stopwords.words('english')
+# print(stopwords)
+
+stopwords = ['a', 'about', 'above', 'after', 'again', 'against', 'ain', 'all', 'am', 'an', 'and', 'any', 'are', 'aren', "aren't", 'as', 'at', 'be', 'because', 'been', 'before', 'being', 'below', 'between', 'both', 'but', 'by', 'can', 'couldn', "couldn't", 'd', 'did', 'didn', "didn't", 'do', 'does', 'doesn', "doesn't", 'doing', 'don', "don't", 'down', 'during', 'each', 'few', 'for', 'from', 'further', 'had', 'hadn', "hadn't", 'has', 'hasn', "hasn't", 'have', 'haven', "haven't", 'having', 'he', "he'd", "he'll", 'her', 'here', 'hers', 'herself', "he's", 'him', 'himself', 'his', 'how', 'i', "i'd", 'if', "i'll", "i'm", 'in', 'into', 'is', 'isn', "isn't", 'it', "it'd", "it'll", "it's", 'its', 'itself', "i've", 'just', 'll', 'm', 'ma', 'me', 'mightn', "mightn't", 'more', 'most', 'mustn', "mustn't", 'my', 'myself', 'needn', "needn't", 'no', 'nor', 'not', 'now', 'o', 'of', 'off', 'on', 'once', 'only', 'or', 'other', 'our', 'ours', 'ourselves', 'out', 'over', 'own', 're', 's', 'same', 'shan', "shan't", 'she', "she'd", "she'll", "she's", 'should', 'shouldn', "shouldn't", "should've", 'so', 'some', 'such', 't', 'than', 'that', "that'll", 'the', 'their', 'theirs', 'them', 'themselves', 'then', 'there', 'these', 'they', "they'd", "they'll", "they're", "they've", 'this', 'those', 'through', 'to', 'too', 'under', 'until', 'up', 've', 'very', 'was', 'wasn', "wasn't", 'we', "we'd", "we'll", "we're", 'were', 'weren', "weren't", "we've", 'what', 'when', 'where', 'which', 'while', 'who', 'whom', 'why', 'will', 'with', 'won', "won't", 'wouldn', "wouldn't", 'y', 'you', "you'd", "you'll", 'your', "you're", 'yours', 'yourself', 'yourselves', "you've", '.', ',']
+
+clean_words = []
+
+for w in words_no_punc:
+    if w not in stopwords:
+        clean_words.append(w)
+    
+print(clean_words)
+print()
+print(len(clean_words))
+
+fdist = FreqDist(clean_words)
+fdist.most_common(10)
+
+
+fdist.plot(10)
+
+#A Word Cloud (from WordCloud) is a tool that turns text into a visual image of words.
+#It shows:
+#Big words = used more often
+#Small words = used less often
+
+from wordcloud import WordCloud
+import matplotlib.pyplot as plt
+wordcloud = WordCloud().generate(text)
+plt.figure(figsize = (12,12))
+plt.imshow(wordcloud)
+plt.axis('off')
+plt.imshow(wordcloud)
+
+#WordCloud → creates word cloud
+#NumPy → converts image into array
+#Pillow (PIL) → reads image file
+#Matplotlib → displays output
+
+# Import NumPy for working with arrays
+import numpy as np
+
+# Import Image module to load image file
+from PIL import Image
+
+# Import WordCloud tool from NLTK ecosystem
+from wordcloud import WordCloud
+
+# Convert image into a NumPy array (this will act as a shape mask)
+char_mask = np.array(Image.open('circle.png'))
+
+# Create word cloud:
+# - background_color = 'Black' sets background color
+# - mask = char_mask makes word cloud take shape of the image
+wordcloud = WordCloud(background_color='Black', mask=char_mask).generate(text)
+
+# Create figure size (width, height)
+plt.figure(figsize=(8, 8))
+
+# Display the word cloud image
+plt.imshow(wordcloud)
+
+# Hide axis lines (x and y axis)
+plt.axis('off')
+
+# Show the final output
+plt.show()
+
+#Stemming converts words to their root form.
+#It removes endings like:
+#-ing
+#-ed
+#-es
+
+So words become their base form
+
+from nltk.stem import PorterStemmer
+
+# Create stemmer object
+porter = PorterStemmer()
+
+word_list = ['Study', 'Studying', 'Studies', 'Studied']
+
+# Apply stemming
+for w in word_list:
+    print(porter.stem(w))
+
+from nltk.stem import PorterStemmer
+
+# Create stemmer object
+porter = PorterStemmer()
+
+word_list = ['studies', 'leaves', 'decreases', 'plays']
+
+# Apply stemming
+for w in word_list:
+    print(porter.stem(w))
+
+#Snowball Stemmer is an improved stemming algorithm that converts words into their root form more accurately.
+
+from nltk.stem import SnowballStemmer
+
+# Create stemmer object
+snowball = SnowballStemmer('english')
+
+word_list = ['Study', 'Studying', 'Studies', 'Studied']
+
+# Apply stemming
+for w in word_list:
+    print(snowball.stem(w))
+
+from nltk.stem import SnowballStemmer
+
+## Show all supported languages for Snowball Stemmer
+SnowballStemmer.languages
+
+from nltk.stem import PorterStemmer
+
+# Create stemmer object
+stemmer = PorterStemmer()
+
+# Apply stemming
+print(stemmer.stem('studies'))
+
+
+from nltk.stem import WordNetLemmatizer
+
+# Create stemmer object
+lemmatizer = WordNetLemmatizer()
+
+# Apply stemming
+print(lemmatizer.lemmatize('studies'))
+
+
+
