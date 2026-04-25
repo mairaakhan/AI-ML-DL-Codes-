@@ -1,0 +1,70 @@
+def recursion(user_input):
+    user_input = int(input("Enter a number: "))
+# iterations = int(input("Enter iteration number: "))
+    for i in range(user_input):
+        user_input = user_input + user_input
+        print (user_input)
+        
+recursion(5)    
+
+# List Items of different types
+# A list containing string, integer, another list
+List = ['student', 'Jack', 32, 'Computer Science', [1,2]]
+print (List)
+
+ages = [1,3,8,2,20]
+print (ages)
+
+# An Empty List
+Emp_Lst = []
+print(Emp_Lst)
+
+# Accessing list from negative indexing
+List = [1,2,3,4,5]
+print(List[-1])
+print(List[-4])
+print(List[0])
+
+my_list = ['p', 'q', 'r', 's', 't', 'u', 'v']
+print (my_list[0:-3])
+print (my_list[1:-1])
+print (my_list[0:])
+print (my_list[:])
+
+lst = ['apple', 'orange', 'banana']
+lst.append('kiwi')
+print (f"Appended List: ", lst)
+
+lst.insert(1, 'cherry')
+print (f"Inserted List: ", lst)
+
+lst.remove('apple')
+print(f"Removed list: ", lst)
+
+del lst[1]
+print(f"Deleted List: ", lst)
+
+numbers = [1,3,5]
+even_nos = [2,4,6]
+numbers.extend(even_nos)
+print(f"Extended List: ", numbers)
+
+fruits = ['apple', 'orange', 'banana']
+for fruit in fruits:
+    print(fruit)
+print()
+for i in range(3):
+    print(fruits[i])
+print()
+for i in range(len(fruits)):
+    print(fruits[i])
+
+num = (1,2,-5)
+print(num)
+
+# emp tuple
+emp_tup=()
+print(emp_tup)
+
+
+

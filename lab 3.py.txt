@@ -1,0 +1,57 @@
+matrix = [
+    [1,2,3],
+    [4,5,6],
+    [7,8,9]
+]
+val = 5
+found = False
+
+for r in matrix:
+    for n in r:
+        if n == val:
+            print(f"{val} found!")
+            found = True
+            break
+        if found:
+            break
+print (found)       
+
+for i in range(1,11):
+    if i == 6:
+        continue
+    print(i, end = " ")
+    
+
+for char in "system intelligence":
+    if char == "e":
+        continue 
+        # use pass and break to check the difference
+    print(char, end = " ")
+
+# Using continue in nested loop
+a = [[1,2,3], [4,5,6], [7,8,9]]
+for row in a:
+    for num in row:
+        if num == 3:
+            continue
+        print(num, end=" ")
+
+# Using continue with a while loop
+i = 0
+while i < 10:
+    if i == 5:
+        i += 1
+        continue
+    print(i)
+    i +=1
+
+salary = float(input("Enter your salary: "))
+year = 0
+while (salary < 10000):
+    increment = (salary * 0.1)
+    salary = salary + increment
+    year += 1
+print(salary)
+
+
+

@@ -1,0 +1,14 @@
+str_id = (122,114,116,118,115)
+print('student ID:', str_id)
+
+vowel_letter = {'a' , 'e' , 'i' , 'o' , 'u' }
+print(vowel_letter)
+
+mixed_sets = {'hello' , 101 , -2 , 'bye'} 
+print(mixed_sets)
+
+emp= ()
+print(emp)
+
+
+
