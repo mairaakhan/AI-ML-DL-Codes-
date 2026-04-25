@@ -1,0 +1,47 @@
+n = "maira"
+m = n.upper()
+print(m)
+
+n= "MAIRA"
+m = n.lower()
+print(m)
+
+n= "MAIRA"
+m = n.partition("I")
+print(m)
+
+n= "MAIRA"
+m = n.replace("I","R")
+print(m)
+
+n= "MAIRA"
+m = n.find("I")
+print(m)
+
+n= "MAIRA \n  "
+m = n.rstrip()
+print(m)
+
+n= "MAIRAA"
+m = n.rstrip('AA')
+print(m)
+
+n= "MAIRA"
+m = n.split("I")
+print(m)
+
+n= "MAIRA"
+m = n.startswith("I")
+print(m)
+
+n= "MAIRA"
+m = n.isnumeric()
+print(m)
+
+
+n= "MAIRA"
+m = n.index("i")
+print(m)
+
+
+
