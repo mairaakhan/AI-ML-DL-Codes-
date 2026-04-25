@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Python Practice Code (With Comments)</title>
+</head>
+<body>
+
+<h1>Python Practice Code (With Comments)</h1>
+
+<pre>
+# ==============================
+# BASIC OPERATIONS
+# ==============================
+
+# Adding two numbers
+num1 = 1.5
+num2 = 6.3
+sum = num1 + num2
+print(f"The sum of {num1} and {num2} is {sum}")
+
+# Taking input from user (string type)
+num1 = input('Enter first number: ')
+print(type(num1))
+
+# Converting input to float and adding
+num1 = input('Enter first number: ')
+num2 = input('Enter second number: ')
+sum = float(num1) + float(num2)
+print(f"The sum of {num1} and {num2} is {sum}")
+
+# Square root using power operator
+num = 64
+num_sqrt = num ** 0.5
+print(f"The square root of {num} is {num_sqrt}")
+
+# Complex number square root
+import cmath
+num = 1+2j
+num_sqrt = cmath.sqrt(num)
+print(f"The square root of {num} is {num_sqrt}")
+
+# ==============================
+# MATHEMATICAL CONVERSIONS
+# ==============================
+
+# Celsius to Fahrenheit conversion
+celsius = 37.5
+fahrenheit = (celsius * 1.8) + 32
+print(f"{celsius} Celsius is equal to {fahrenheit} Fahrenheit")
+
+# Triangle area using Heron's formula
+a = 5
+b = 6
+c = 7
+s = (a + b + c) / 2
+area = (s*(s-a)*(s-b)*(s-c)) ** 0.5
+print(f"The area of triangle is {area}")
+
+# Quadratic equation solution
+import cmath
+a = 1
+b = 5
+c = 6
+d = (b**2) - (4*a*c)
+sol1 = (-b-cmath.sqrt(d))/(2*a)
+sol2 = (-b+cmath.sqrt(d))/(2*a)
+print(sol1, sol2)
+
+# KM to miles conversion
+km = 5
+miles = km * 0.621371
+print(f"{km} km is equal to {miles} miles")
+
+# ==============================
+# CONDITIONAL STATEMENTS
+# ==============================
+
+i = 20
+if i < 15:
+    print("Smaller")
+else:
+    print("Greater")
+
+# ==============================
+# LOOPS
+# ==============================
+
+# For loop over list
+numbers = [10, 20, 30]
+for num in numbers:
+    print(num)
+
+# Range loop
+for i in range(5):
+    print(i)
+
+# String iteration
+text = "Python"
+for ch in text:
+    print(ch)
+
+# Nested loop
+for i in range(2):
+    for j in range(2):
+        print(i, j)
+
+# Break example
+for ch in "abcdef":
+    if ch == "d":
+        break
+    print(ch)
+
+# Continue example
+for ch in "abcdef":
+    if ch == "c":
+        continue
+    print(ch)
+
+# Pass statement
+for i in "hello":
+    pass
+
+# ==============================
+# WHILE LOOPS
+# ==============================
+
+# Simple while loop
+count = 0
+while count < 3:
+    count += 1
+    print("Hello world")
+
+# Continue in while loop
+i = 0
+a = "navetstc"
+while i < len(a):
+    if a[i] == 'e' or a[i] == 's':
+        i += 1
+        continue
+    print(a[i])
+    i += 1
+
+# Break in while loop
+i = 0
+a = "ytemintelligence"
+while i < len(a):
+    if a[i] == 'e' or a[i] == 's':
+        break
+    print(a[i])
+    i += 1
+
+# While-else example
+i = 0
+while i < 4:
+    i += 1
+    print(i)
+else:
+    print("No Break")
+
+# ==============================
+# SEARCHING
+# ==============================
+
+a = [1, 3, 5, 7, 9, 11]
+val = 7
+for i in a:
+    if i == val:
+        print("Found!")
+        break
+else:
+    print("Not found")
+
+# Countdown loop
+cnt = 5
+while True:
+    print(cnt)
+    cnt -= 1
+    if cnt == 0:
+        print("Countdown finished!")
+        break
+
+# Matrix search
+matrix = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
+]
+val = 5
+found = False
+
+for r in matrix:
+    for n in r:
+        if n == val:
+            print(f"{val} found!")
+            found = True
+            break
+    if found:
+        break
+
+# ==============================
+# FUNCTIONS
+# ==============================
+
+# List mutation example
+lst = [70, 11, 12, 13]
+def myfun(x):
+    x[0] = 20
+
+myfun(lst)
+print(lst)
+</pre>
+
+</body>
+</html>
